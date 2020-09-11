@@ -5,7 +5,7 @@ services:
 before_install:
     - docker build -t sandipan814/react-test -f ./client/Dockerfile.dev ./client
 script:
-    - docker run -e CI=true sandipan814/react-test npm test
+    - docker run -e CI=true sandipan814/react-test npm test -- --coverage
 after_success:
     - docker build -t sandipan814/multi-client ./client
     - docker build -t sandipan814/multi-server ./server
