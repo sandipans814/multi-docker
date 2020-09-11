@@ -12,10 +12,10 @@ after_success:
     - docker build -t sandipan814/multi-worker ./worker
     - docker build -t sandipan814/multi-nginx ./nginx
     #Log in to docker cli
-    - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
     #Push images to docker hub
     - docker push sandipan814/multi-client
     - docker push sandipan814/multi-server
     - docker push sandipan814/multi-worker
     - docker push sandipan814/multi-nginx
-    
+
